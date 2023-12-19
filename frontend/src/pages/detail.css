@@ -1,0 +1,105 @@
+.searchBar{
+    position: fixed;
+    width: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    margin-top: -3rem;
+}
+.searchBar .textFiled{
+    padding: 0.6rem 2rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+}
+
+.infinite-scroll-component {
+    margin-top: 3rem;
+}
+.infinite-scroll-component h4{
+    text-align: center;
+}
+.infinite-scroll-component h2{
+    text-align: center;
+    margin-top: 3rem;
+}
+ .MuiPaper-elevation1 {
+    text-align: center;
+    width: 80% !important;
+    margin: auto;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.detail .right-container {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
+
+.right-container .getDetail {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+.dataTable .sc-jrAGKZ{
+    cursor: pointer;
+}
+.MuiCircularProgress-root{
+    width: 33px !important;
+    height: 33px !important;
+}
+.right-container .titleName{
+    text-align: center;
+    border-bottom: 1px solid rgb(188, 187, 187);
+    padding: 0.8rem;
+}
+.getDetail .image{
+    margin: auto;
+    padding-top: 1rem;
+    /* border-bottom: 1px solid rgb(223, 221, 221);
+    box-shadow: 0px 1px 4px grey; */
+}
+.getDetail .shortDetail{
+    width: 100%;
+    padding: 0 2rem;
+    border-bottom: 1px solid rgb(223, 221, 221);
+    box-shadow: 0px 1px 4px grey;
+}
+.getDetail .longDetail{
+    width: 100%;
+    padding: 0 2rem;
+    border-bottom: 1px solid rgb(223, 221, 221);
+    box-shadow: 0px 1px 4px grey;
+
+}
+.getDetail .category{
+    width: 100%;
+    border-bottom: 1px solid rgb(223, 221, 221);
+    box-shadow: 0px 1px 4px grey;
+}
+.getDetail .relatedNote{
+    width: 100%;
+    border-bottom: 1px solid rgb(223, 221, 221);
+    box-shadow: 0px 1px 4px grey;
+}
+.relatedNote .relatedTitle{
+    border-bottom: 1px solid rgb(223, 221, 221);
+    padding-bottom: 0.6rem;
+}
+.relatedNote .booksList{
+    margin-top: 1rem;
+    border-bottom: 1px solid rgb(223, 221, 221);
+}
+.booksList .bookDet{
+    padding: 0 1.5rem;
+}
+.category .categoryStore{
+    display: flex;
+    justify-content: center;
+}
+.categoryStore .categoryList{
+    margin-right: 3rem;
+}
