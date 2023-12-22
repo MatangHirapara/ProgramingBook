@@ -21,6 +21,6 @@ export const columns = [
     },
     {
         name: 'Link',
-        selector: row => <button style={{padding:'0.5rem 2rem', borderRadius: '0.5rem', border:'none', cursor:'pointer'}}><Link style={{color: 'green'}} to={`/${row.isbn}`}> Visit</Link></button>,
-      },
+        selector: row => <Link to={`/${row.isbn}`}><button className="visitBtn" style={{color: 'green',padding:'0.5rem 2rem', borderRadius: '0.5rem', border:'none', cursor:'pointer'}}>Visit</button></Link>,
+    },
   ];

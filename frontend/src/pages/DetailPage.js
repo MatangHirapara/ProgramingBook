@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import DataTable from 'react-data-table-component';
 import { columns } from '../utils/TableColumn';
+import { CircularProgress, TablePagination } from '@mui/material';
 
 
 const ENDPOINT = "http://localhost:4500/";
@@ -10,14 +11,40 @@ let selectDetail
 const DetailPage = () => {
 
   const [item, setItem] = useState([])
+  console.log('item', item)
+  const [column, setColumn] = useState()
+  const [pending, setPending] = useState(true)
   const { id } = useParams()
 
-  const detail = item.find((el) => {
+  const [page, setPage] = useState(2);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  const CustomMaterialPagination = () => (
+    <TablePagination
+      component="div"
+      count={100}
+      page={page}
+      onPageChange={handleChangePage}
+      rowsPerPage={rowsPerPage}
+      onRowsPerPageChange={handleChangeRowsPerPage}
+    />
+  );
+
+  const detail = item?.find((el) => {
     return el.isbn === id
   })
   const getCatg = detail?.categories.map((number) => ({ number }))
 
-  const xyz = getCatg?.map((el) => (
+  const xyz = getCatg?.filter((el) => (
     selectDetail = item.filter((item) => {
       const name = item.title.split(" ")
       return el.number === name.find((item) => item)
@@ -33,9 +60,17 @@ const DetailPage = () => {
 
   useEffect(() => {
     fetchDeta()
+
+    const timeout = setTimeout(() => {
+      setColumn(columns);
+      setPending(false);
+    }, 2000);
+    
+    return () => clearTimeout(timeout);
+
   }, [])
 
-  
+
 
   return (
     <div className="detail">
@@ -67,8 +102,11 @@ const DetailPage = () => {
             <h3 style={{ textAlign: 'center' }} className='relatedTitle'>Related-Books-Lists</h3>
             <div className='dataTable'>
               <DataTable
-                columns={columns}
+                pagination
+                columns={column}
                 data={selectDetail}
+                progressPending={pending}
+                progressComponent={<CircularProgress color="inherit" />} 
               />
             </div>
             {/* <div>
